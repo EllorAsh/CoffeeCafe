@@ -1,0 +1,84 @@
+body{
+    margin: 0px;
+}
+.navBar{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.logo_name{
+    display: flex;
+    align-items: center;
+}
+
+.navOptions{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.logoMain{
+    height: 100px;
+    margin-left: 20px;
+    margin-right: 0px;
+}
+
+.navLink{
+    text-decoration: none;
+    color: rgb(213, 163, 113);
+    margin-left: 20px;
+}
+
+.selected{
+    background-color: rgb(141, 97, 54);
+    color: #3b291a;
+    border-radius: 12px;
+    padding: 8px;
+}
+
+.home_background_video{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Ensure the video is behind other content */
+    object-fit: cover; /* Ensure the video covers the entire background */
+}
+
+.reviews_container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 6%;
+    margin-right: 6%;
+}
+.review_card{
+    background-color: rgba(141, 97, 54, 0.9);
+    width: 250px;
+    height: 150px;
+    text-align: center;
+    margin: 10px;
+    justify-self: center;
+    border-radius: 12px;
+    margin:0 ;
+    padding: 5px;
+}
+
+.review_star_f{
+    margin-top: 5px;
+}
+.review_star_e{
+    margin-top: 5px;
+}
+.review_user{
+    margin: 5px;
+    text-align: left;
+    position: relative;
+    bottom: 0;
+    right: 0;
+}
+.review_content{
+    font-size: 20px;
+    margin: 5px;
+    text-align: left;
+    height: 90px;
+}

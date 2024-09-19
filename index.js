@@ -13,3 +13,39 @@ const db = new pg.Client({
     password: process.env.PG_PASSWORD,
     port: process.env.PG_PORT
 })
+db.connect();
+const app = express();
+const port = 3000;
+
+app.use(express.static("./public"));
+
+app.get("/", async(req, res)=>{
+    const reviewsdb =await GetReviews();
+    res.render("home.ejs",{
+        reviews: reviewsdb,
+    })
+})
+
+app.get("/home", async(req, res)=>{
+    const reviewsdb =await GetReviews();
+    res.render("home.ejs", {
+        reviews: reviewsdb,
+    })
+})
+
+app.listen(port, ()=>{
+    console.log("Server running on port "+ port);
+})
+
+
+// functions
+
+async function GetReviews() {
+    let reviews=[]
+    const result = await db.query("SELECT * FROM review")
+    result.rows.forEach((review)=>{
+        reviews.push(review)
+    })
+    console.log(reviews)
+    return reviews
+}
