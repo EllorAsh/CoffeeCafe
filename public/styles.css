@@ -15,7 +15,12 @@ body{
     align-items: center;
     margin-right: 20px;
 }
-
+.cart{
+    text-decoration: none;
+    color: rgb(213, 163, 113);
+    margin-left: 20px;
+    align-content: end;
+}
 .logoMain{
     height: 100px;
     margin-left: 20px;
@@ -46,7 +51,7 @@ body{
 }
 .slogan{
     height: 30vw; 
-    font-size: 100px; 
+    font-size: 8em; 
     width: 60vw; 
     min-height: 200px;
     color: antiquewhite;
@@ -131,6 +136,58 @@ body{
     padding-right: 20px;
 }
 
+.menuCategory{
+    display: flex;
+    justify-content: center;
+}
+
+.itemContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.itemCard{
+    width: 300px;
+    height: 370px;
+}
+.cardSpacing{
+    height: 150px;
+}
+.orderForm{
+    display: flex;
+    justify-content: end;
+}
+.orderButton{
+    background-color: rgba(141, 97, 54, 1);
+    border-radius: 12px;
+    padding: 5px;
+}
+.itemInfo{
+    background-color: rgba(59, 41, 26, 0.6);
+    color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    height: 220px;
+}
+.itemNameAndPrice{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cartItemsNum{
+    position: relative;
+    color: wheat;
+    background-color:rgba(141, 97, 54, 1);
+    padding: 2px;
+    font-size: 16px;
+    top: -45px;
+    right: -20px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    align-content: center;
+}
+
 @media (min-width: 1400px){
 
     .about_header{
@@ -175,4 +232,61 @@ body{
         width: 40%;
         opacity: 0;
     }
+}
+
+.star1{
+    z-index: 4;
+}
+.star2{
+    z-index: 3;
+}
+.star3{
+    z-index: 2;
+}
+.star4{
+    z-index: 1;
+}
+.star5{
+    z-index: 0;
+}
+
+
+/* Customize the label (the container) */
+.container {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    color: rgba(59, 41, 26, 0.2)
+}
+  
+/* Hide the browser's default radio button */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+  
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    transform: rotateZ(90deg);
+    margin: 0;
+}
+  
+  
+/* When the radio button is checked */
+.container input:checked ~ .checkmark {
+    color: rgba(59, 41, 26, 1)
+}
+
+.container input:hover ~ .checkmark {
+    color: rgba(59, 41, 26, 0.9)
 }
