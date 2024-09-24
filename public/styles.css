@@ -5,6 +5,8 @@ body{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    background-color: rgba(250, 235, 215, 0.6);
+    width: 100%;
 }
 .logo_name{
     display: flex;
@@ -17,9 +19,12 @@ body{
 }
 .cart{
     text-decoration: none;
-    color: rgb(213, 163, 113);
+    color:rgba(59, 41, 26,1);
     margin-left: 20px;
     align-content: end;
+}
+.cartSelected{
+    color: rgb(141, 97, 54);
 }
 .logoMain{
     height: 100px;
@@ -29,7 +34,7 @@ body{
 
 .navLink{
     text-decoration: none;
-    color: rgb(213, 163, 113);
+    color:rgba(59, 41, 26,1);
     margin-left: 20px;
 }
 
@@ -49,12 +54,20 @@ body{
     z-index: -1; /* Ensure the video is behind other content */
     object-fit: cover; /* Ensure the video covers the entire background */
 }
+.noMargin{
+    margin: 0%;
+}
 .slogan{
-    height: 30vw; 
-    font-size: 8em; 
-    width: 60vw; 
-    min-height: 200px;
+    margin-left: 30px;
+    font-size: 50px; 
+    width: 80vw; 
+    min-height: fit-content;
     color: antiquewhite;
+    text-shadow: 2px 2px 5px black;
+}
+.slogan-descrip{
+    font-size: 24px;
+    margin-top: 0%;
 }
 
 .reviews_container{
@@ -65,8 +78,8 @@ body{
 }
 .review_card{
     background-color: rgba(141, 97, 54, 0.9);
-    width: 250px;
-    height: 150px;
+    width: 350px;
+    height: 200px;
     text-align: center;
     margin: 10px;
     justify-self: center;
@@ -89,7 +102,8 @@ body{
     right: 0;
 }
 .review_content{
-    font-size: 20px;
+    overflow-wrap: break-word;
+    font-size: 18px;
     margin: 5px;
     text-align: left;
     height: 90px;
@@ -147,7 +161,8 @@ body{
 }
 .itemCard{
     width: 300px;
-    height: 370px;
+    height: 250px;
+    border-radius: 15px;
 }
 .cardSpacing{
     height: 150px;
@@ -158,15 +173,21 @@ body{
 }
 .orderButton{
     background-color: rgba(141, 97, 54, 1);
-    border-radius: 12px;
-    padding: 5px;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 15px;
+    border: 2px;
+    color: antiquewhite;
+    cursor: pointer;
 }
 .itemInfo{
     background-color: rgba(59, 41, 26, 0.6);
     color: antiquewhite;
     display: flex;
     flex-direction: column;
-    height: 220px;
+    height: 100px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 .itemNameAndPrice{
     display: flex;
@@ -187,78 +208,39 @@ body{
     border-radius: 50%;
     align-content: center;
 }
-
-@media (min-width: 1400px){
-
-    .about_header{
-        font-size: 50px;
-    }
-    .about_text{
-        font-size: 22px;
-    }
-}
-@media (min-width : 1000px)and (max-width:1400px){
-
-    .about_header{
-        font-size: 40px;
-    }
-    .about_text{
-        font-size: 22px;
-    }
-}
-@media (min-width : 600px)and (max-width:1000px){
-    .reviews_container{
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .about_img{
-        width: 40%;
-        opacity: 0;
-    }
-}
-@media (min-width : 450px)and (max-width:600px){
-    .reviews_container{
-        grid-template-columns: 1fr;
-    }
-    .about_img{
-        width: 40%;
-        opacity: 0;
-    }
-}
-@media (max-width:450px){
-    .reviews_container{
-        grid-template-columns: 1fr;
-    }
-    .about_img{
-        width: 40%;
-        opacity: 0;
-    }
+.reviewStars{
+    transform: rotateZ(-15deg);
 }
 
 .star1{
-    z-index: 4;
+    z-index: 5;
+    margin-left: 5px;
+    padding-left: 35.5px;
 }
 .star2{
-    z-index: 3;
+    z-index: 4;
+    padding-left: 37px;
 }
 .star3{
-    z-index: 2;
+    z-index: 3;
+    margin-left: -5px;
+    padding-left: 35.5px;
 }
 .star4{
-    z-index: 1;
+    z-index: 2;
+    padding-left: 36.5px;
 }
 .star5{
-    z-index: 0;
+    z-index: 1;
+    margin-left: -1px;
+    padding-left: 36px;
 }
-
 
 /* Customize the label (the container) */
 .container {
     position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
-    color: rgba(59, 41, 26, 0.2)
+    color: rgba(59, 41, 26, 0);
 }
   
 /* Hide the browser's default radio button */
@@ -275,7 +257,7 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-    height: 30px;
+    height: 20px;
     width: 30px;
     transform: rotateZ(90deg);
     margin: 0;
@@ -284,9 +266,193 @@ body{
   
 /* When the radio button is checked */
 .container input:checked ~ .checkmark {
-    color: rgba(59, 41, 26, 1)
+    color:rgb(245, 223, 194)
 }
 
 .container input:hover ~ .checkmark {
-    color: rgba(59, 41, 26, 0.9)
+    color:rgba(250, 235, 215, 0.8)
+}
+
+.starsBehind{
+    position: absolute;
+    padding-top: 2px;
+    z-index: 0;
+    color:rgba(250, 235, 215, 0.5) ;
+}
+
+.ratingContainer{
+    height: 40px;
+    width: 300px;
+}
+
+.leaveReview{
+    background: image-set("./Website_Images/13.png");
+    background-size: cover;
+    height: fit-content;
+    display: flex;
+}
+.reviewImage{
+    height: 320px;
+    margin: 0px;
+}
+.createReview{
+    background-color: rgba(108, 75, 41, 0.5);
+    width: 60%;
+    padding: 20px;
+}
+.reviewContent{
+    width: 90%;
+    height: 150px;
+    background-color: rgba(250, 235, 215, 0.5);
+    border-radius: 12px;
+    padding: 10px;
+    border: none;
+    font-size: 20px;
+}
+.ratingContainer{
+    display: flex;
+    align-items: center;
+}
+.reviewButton{
+    padding: 5px;
+    border-radius: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 2px;
+    background-color: rgba(141, 97, 54, 1);
+    margin-top: 10px;
+    color: antiquewhite;
+}
+
+.ratingAsk{
+    font-size: 0;
+    height: 0;
+    margin: 0;
+}
+
+form:invalid .reviewButton{
+    opacity: 0.2;
+}
+
+form:invalid .ratingAsk{
+    font-size: 14px;
+    height: fit-content;
+    margin-bottom: 0;
+}
+
+.footerText{
+    margin: 2px;
+}
+
+.menuHeader{
+    background: image-set("./Website_Images/24.png");
+    background-size: cover;
+}
+.menuSpacing{
+    height: 100px;
+}
+.menuCategory{
+}
+.menuCategoryHeader{
+    background-color: rgba(59, 41, 26, 0.5);
+    margin: 0;
+    height: 100px;
+    text-align: center;
+    color: antiquewhite;
+}
+
+.menuCategoryImage{
+    width: 100vw;
+    height: 400px;
+    align-content: end;
+    font-size: 24px;
+}
+
+.menuCategoryHeaderCoffee{
+    background-color:rgb(141, 97, 54);
+    margin: 0;
+    height: 100px;
+}
+.menuBody{
+    background: image-set("./Website_Images/51.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+@media (min-width: 1400px){
+
+    .about_header{
+        font-size: 50px;
+    }
+    .about_text{
+        font-size: 22px;
+    }
+    .slogan{
+        width: 30vw; 
+        font-size: 70px;
+    }
+}
+@media (min-width : 1000px)and (max-width:1400px){
+
+    .about_header{
+        font-size: 40px;
+    }
+    .about_text{
+        font-size: 22px;
+    }
+    .slogan{
+        width: 50vw; 
+        font-size: 60px;
+    }
+}
+@media (min-width : 600px)and (max-width:1000px){
+    .reviews_container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .about_img{
+        width: 40%;
+        opacity: 0;
+    }
+    .reviewImage{
+        width: 0px;
+    }
+    .slogan{
+        width: 60vw; 
+    }
+}
+@media (min-width : 450px)and (max-width:600px){
+    .reviews_container{
+        grid-template-columns: 1fr;
+    }
+    .about_img{
+        width: 40%;
+        opacity: 0;
+    }
+    .reviewImage{
+        width: 0px;
+    }
+    .createReview{
+        width: 100%;
+    }
+    .slogan{
+        width: 80vw; 
+    }
+}
+@media (max-width:450px){
+    .reviews_container{
+        grid-template-columns: 1fr;
+    }
+    .about_img{
+        width: 40%;
+        opacity: 0;
+    }
+    .reviewImage{
+        width: 0px;
+    }
+    .createReview{
+        width: 100%;
+    }
+    .slogan{
+        width: 80vw; 
+    }
 }

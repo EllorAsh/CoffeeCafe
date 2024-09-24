@@ -43,7 +43,7 @@ app.get("/", async(req, res)=>{
 app.get("/home", async(req, res)=>{
   if(req.isAuthenticated()){
     const userId = req.user.id;
-    const reviewsdb =await GetReviews();
+    const reviewsdb =await GetReviews(3);
     const cartItems = await GetCartCount(userId);
     res.render("home.ejs", {
         reviews: reviewsdb,
@@ -54,18 +54,12 @@ app.get("/home", async(req, res)=>{
   }
 })
 
-app.post("/home", async(req, res)=>{
+app.post("/review", async(req, res)=>{
   if(req.isAuthenticated()){
-    const userId = req.user.id;
     const reviewRating = req.body.rating;
     const reviewContent = req. body.reviewContent;
     await LeaveReview(reviewContent, reviewRating);
-    const reviewsdb =await GetReviews();
-    const cartItems = await GetCartCount(userId);
-    res.render("home.ejs", {
-        reviews: reviewsdb,
-        cartItems:cartItems,
-    })
+    res.redirect("/home");
   }else{
     res.redirect("/login")
   }
@@ -293,14 +287,19 @@ app.listen(port, ()=>{
 
 // functions
 
-async function GetReviews() {
+async function GetReviews(amount) {
     let reviews=[]
-    const result = await db.query("SELECT * FROM review")
+    let topreviews=[]
+    const result = await db.query("SELECT * FROM review ORDER BY rating DESC")
     result.rows.forEach((review)=>{
         reviews.push(review)
     })
-    console.log(reviews)
-    return reviews
+    for(var i=0; i<amount; i++){
+      if(reviews[i]){
+        topreviews.push(reviews[i])
+      }
+    }
+    return topreviews
 }
 
 // function to get all items of specified category
