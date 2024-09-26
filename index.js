@@ -37,7 +37,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get("/", async(req, res)=>{
-    res.render("/login.ejs")
+    res.render("login.ejs")
 })
 
 app.get("/home", async(req, res)=>{
@@ -123,10 +123,12 @@ app.get("/cart", async(req, res)=>{
     const userId = req.user.id;
     const cartItems = await GetCartCount(userId);
     const items = await GetCartItems(userId)
+    const total = await getTotalPrice(userId)
     console.log(items)
     res.render("cart.ejs",{
       items:items,
       cartItems:cartItems,
+      total:total,
     })
   }else{
     res.redirect("/login")
@@ -386,4 +388,13 @@ async function PlaceOrder(userId, additional, method) {
   console.log("User: "+ user+ " ordered: \n"+ items+ "\nAdditional notes: "+ additionalNotes+ "\nDelivery method: "+deliveryMethod+ "\nWith a total before tax of R"+totalBeforeTax+ "\nAnd a total tax of "+ totalTax+ "\nAnd a total after tax of "+totalAfterTax)
   await db.query("INSERT INTO orders (userId, itemsordered, totalbeforetax, totaltax, totalaftertax, deliverymethod, additionalnotes) VALUES ($1, $2, $3, $4, $5, $6, $7)",[userId, items, totalBeforeTax, totalTax, totalAfterTax, deliveryMethod, additionalNotes])
   await db.query("DELETE FROM cart WHERE userid = $1",[userId])
+}
+
+async function getTotalPrice(userId) {
+  let totalBeforeTax=0;
+  const result= await db.query("SELECT * FROM item JOIN cart ON item.id = cart.itemid WHERE userid = $1",[userId])
+  result.rows.forEach(item=>{
+    totalBeforeTax += item.price;
+  })
+  return totalBeforeTax;
 }

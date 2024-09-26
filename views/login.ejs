@@ -4,23 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="./styles.css"/>
+
+    <!-- fonts -->
 </head>
 <body>
-    <div>
-        <form action="/login" method="POST">
-            <div>
-                <label for="email">Email</label>  
-                <input type="email" name="username"/>            
-            </div>
-            <div>
-                <label for="password">Password</label>
-                <input type="password" name="password"/>
-            </div>
-            <a href="/auth/google/secrets" role="button" class="google">
-                Sign In with Google
-            </a>
-            <button type="submit">Login</button>
-        </form>
+    <div class="signInUp">
+        <div class="signInUpBG">
+            <form class="signInUpForm" action="/login" method="POST">
+                <div>
+                    <label for="email">Email</label> <br>
+                    <input required="True" class="emailField" type="email" name="username"/>            
+                </div>
+                <div>
+                    <label for="password">Password</label><br>
+                    <input required="True" class="passwordField" type="password" name="password"/>
+                </div>
+                <a href="/auth/google/secrets" role="button" class="google">
+                    Sign In with Google
+                </a>
+                <a href="/register" role="button" class="linkToSignInUp">
+                    Or Register Here
+                </a>
+                <button class="signInUpButton" type="submit">Login</button>
+            </form>
+        </div>
     </div>
     
 </body>

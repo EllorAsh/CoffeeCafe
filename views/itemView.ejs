@@ -47,16 +47,17 @@
                     <h4>R<%=item.price%></h4>
                     <form action="/itemView" method="POST">
                         <%if(item.milk== true){%>
-                            <input required="True" type="radio" id="oatMilk" value="oat" name="milk"/>
-                            <label for="oatMilk">Oat Milk</label><br>
-                            <input required="True" type="radio" id="almondMilk" value="almond" name="milk"/>
-                            <label for="almondMilk">Almond Milk</label><br>
-                            <input required="True" type="radio" id="goatMilk" value="goat" name="milk"/>
-                            <label for="goatMilk">Goat's Milk</label><br>
-                            <input required="True" type="radio" id="cowMilk" value="cow" name="milk"/>
-                            <label for="cowMilk">Cow's Milk</label><br>
-                            <input required="True" type="radio" id="noMilk" value="none" name="milk"/>
-                            <label for="noMilk">No Milk</label>
+                            <%const milkTypes=["Oat_Milk", "Almond Milk", "Goat_Milk", "Cow_Milk", "No_Milk"]%>
+                            <%milkTypes.forEach(milk => {%>
+                                <label class="cupRButton">
+                                    <input required="True" type="radio" value="<%=milk%>" name="milk">
+                                    <span class="cupRButtonNew">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cup-fill" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M.11 3.187A.5.5 0 0 1 .5 3h13a.5.5 0 0 1 .488.608l-.22.991a3.001 3.001 0 0 1-1.3 5.854l-.132.59A2.5 2.5 0 0 1 9.896 13H4.104a2.5 2.5 0 0 1-2.44-1.958L.012 3.608a.5.5 0 0 1 .098-.42Zm12.574 6.288a2 2 0 0 0 .866-3.899z"/>
+                                          </svg>
+                                    </span><%=milk.replaceAll("_"," ")%>
+                                </label><br>
+                            <%});%>
                         <%}%>
                         <input hidden="True" value="<%=item.id%>" name="itemId"/>
                         <input hidden="True" value="order" name="type"/>

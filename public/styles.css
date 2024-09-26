@@ -78,7 +78,7 @@ body{
 }
 .review_card{
     background-color: rgba(141, 97, 54, 0.9);
-    width: 350px;
+    width: 250px;
     height: 200px;
     text-align: center;
     margin: 10px;
@@ -150,10 +150,6 @@ body{
     padding-right: 20px;
 }
 
-.menuCategory{
-    display: flex;
-    justify-content: center;
-}
 
 .itemContainer{
     display: flex;
@@ -180,6 +176,10 @@ body{
     color: antiquewhite;
     cursor: pointer;
 }
+.orderButton:hover{
+    background-color: antiquewhite;
+    color: rgba(141, 97, 54, 1);
+}
 .itemInfo{
     background-color: rgba(59, 41, 26, 0.6);
     color: antiquewhite;
@@ -192,7 +192,9 @@ body{
 .itemNameAndPrice{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
+    margin: 20px;
+    margin-top: 0px;
 }
 .cartItemsNum{
     position: relative;
@@ -292,8 +294,8 @@ body{
     display: flex;
 }
 .reviewImage{
-    height: 320px;
     margin: 0px;
+    width: 40%;
 }
 .createReview{
     background-color: rgba(108, 75, 41, 0.5);
@@ -338,6 +340,7 @@ form:invalid .ratingAsk{
     font-size: 14px;
     height: fit-content;
     margin-bottom: 0;
+    color: antiquewhite;
 }
 
 .footerText{
@@ -352,9 +355,12 @@ form:invalid .ratingAsk{
     height: 100px;
 }
 .menuCategory{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
 }
 .menuCategoryHeader{
-    background-color: rgba(59, 41, 26, 0.5);
+    background-color: rgba(59, 41, 26, 1);
     margin: 0;
     height: 100px;
     text-align: center;
@@ -369,14 +375,189 @@ form:invalid .ratingAsk{
 }
 
 .menuCategoryHeaderCoffee{
-    background-color:rgb(141, 97, 54);
+    background-color: rgba(59, 41, 26, 1);
     margin: 0;
     height: 100px;
+    text-align: center;
+    color: antiquewhite;
+}
+.categoryH{
+    font-size: 90px;
+    font-family: "Calligraffitti", cursive;
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+    bottom: 50px;
+    color: rgb(141, 97, 54);
+    text-shadow: 2px 2px 5px black;
+}
+.categoryB{
+    font-size: 24px;
+    position: relative;
+    bottom: 70px;
+    color: antiquewhite;
 }
 .menuBody{
     background: image-set("./Website_Images/51.jpg");
     background-size: cover;
     background-attachment: fixed;
+}
+
+.signInUp{
+    background: image-set("./Website_Images/5.png");
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signInUpBG{
+    background-color: rgba(59, 41, 26, 0.5);
+    height: 350px;
+    width: 300px;
+    color: antiquewhite;
+    padding: 20px;
+    border-radius: 12px;
+    align-content: center;
+}
+.signInUpForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.google, .linkToSignInUp{
+    display: flex;
+    justify-content: center;
+    color: whitesmoke;
+    text-decoration: none;
+    margin: 5px;
+}
+.google:hover, .linkToSignInUp:hover{
+    text-decoration: underline;
+}
+.signInUpButton{
+    background-color:rgba(141, 97, 54, 1);
+    width: fit-content;
+    border: 0px;
+    border-radius: 12px;
+    padding: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin: 10px;
+    cursor: pointer;
+}
+.emailField, .passwordField{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 12px;
+    border: 2px;
+    margin-bottom: 30px;
+}
+.signInUpForm:invalid .signInUpButton{
+    opacity: 0.4;
+    cursor: default;
+}
+
+.cartItem{
+    background-color: rgba(141, 97, 54, 1);
+    display: flex;
+    height: 20vw;
+    max-height: 120px;
+    border-radius: 12px;
+    margin: 5px;
+    width: 40%;
+}
+.cartItemsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.deleteFromCart{
+    width: 25vw;
+    max-width: 230px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+.deleteItemButton{
+    background-color:rgba(108, 75, 41, 0);
+    border:none;
+    margin: 10px;
+    color: antiquewhite;
+    cursor: pointer;
+}
+.deleteItemButton:hover{
+    color:rgba(59, 41, 26,1);
+}
+.cartItemInfo{
+    padding-left: 10px;
+}
+.cartItemNamePrice{
+    display: flex;
+    align-items: center;
+}
+.cartItemPrice{
+    padding-left: 20px;
+    margin: 0px;
+}
+.cartItemName{
+    width: 160px;
+}
+.totalsCart{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    max-width: 700px;
+    min-width: 300px;
+    font-size: 18px;
+}
+.currentOrderInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.placeOrderInfo{
+    width: 50%;
+    max-width: 700px;
+    min-width: 300px;
+}
+.cupRButton{
+    display: flex;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 18px;
+    align-items: center;
+}
+.cupRButton input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.cupRButtonNew{
+    position: absolute;
+    top: -4px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    color:rgba(141, 97, 54, 0.5);
+    border: #2f3335;
+    opacity: 50%;
+}
+  /* On mouse-over, add a grey background color */
+.cupRButton:hover input ~ .cupRButtonNew {
+    color:rgba(141, 97, 54, 1)
+}
+  
+.cupRButton input:checked ~ .cupRButtonNew {
+    color:rgba(141, 97, 54, 1);
+    opacity: 100%;
 }
 
 @media (min-width: 1400px){
@@ -391,8 +572,31 @@ form:invalid .ratingAsk{
         width: 30vw; 
         font-size: 70px;
     }
+    .itemContainer{
+        display: grid;
+        grid-template-columns: repeat(4, 300px);
+        gap: 10px;
+    }
 }
-@media (min-width : 1000px)and (max-width:1400px){
+@media (min-width : 1600px){
+
+    .about_header{
+        font-size: 40px;
+    }
+    .about_text{
+        font-size: 22px;
+    }
+    .slogan{
+        width: 30vw; 
+        font-size: 60px;
+    }
+    .itemContainer{
+        display: grid;
+        grid-template-columns: repeat(5, 300px);
+        gap: 10px;
+    }
+}
+@media (min-width : 1300px)and (max-width:1400px){
 
     .about_header{
         font-size: 40px;
@@ -404,8 +608,36 @@ form:invalid .ratingAsk{
         width: 50vw; 
         font-size: 60px;
     }
+    .itemContainer{
+        display: grid;
+        grid-template-columns: repeat(4, 300px);
+        gap: 10px;
+    }
+    .cartItem{
+        width: 60%;
+    }
 }
-@media (min-width : 600px)and (max-width:1000px){
+@media (min-width : 1000px)and (max-width:1300px){
+    .about_header{
+        font-size: 40px;
+    }
+    .about_text{
+        font-size: 22px;
+    }
+    .slogan{
+        width: 50vw; 
+        font-size: 60px;
+    }
+    .itemContainer{
+        display: grid;
+        grid-template-columns: repeat(3, 300px);
+        gap: 10px;
+    }
+    .cartItem{
+        width: 60%;
+    }
+}
+@media (min-width : 620px)and (max-width:1000px){
     .reviews_container{
         grid-template-columns: repeat(2, 1fr);
     }
@@ -419,8 +651,16 @@ form:invalid .ratingAsk{
     .slogan{
         width: 60vw; 
     }
+    .itemContainer{
+        display: grid;
+        grid-template-columns: repeat(2, 300px);
+        gap: 10px;
+    }
+    .cartItem{
+        width: 80%;
+    }
 }
-@media (min-width : 450px)and (max-width:600px){
+@media (min-width : 450px)and (max-width:620px){
     .reviews_container{
         grid-template-columns: 1fr;
     }
@@ -436,6 +676,14 @@ form:invalid .ratingAsk{
     }
     .slogan{
         width: 80vw; 
+    }
+    .itemContainer{
+        display: grid;
+        grid-template-columns: repeat(1, 300px);
+        gap: 10px;
+    }
+    .cartItem{
+        width: 80%;
     }
 }
 @media (max-width:450px){
@@ -454,5 +702,13 @@ form:invalid .ratingAsk{
     }
     .slogan{
         width: 80vw; 
+    }
+    .itemContainer{
+        display: grid;
+        grid-template-columns: repeat(1, 30px);
+        gap: 10px;
+    }
+    .cartItem{
+        width: 80%;
     }
 }

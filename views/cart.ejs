@@ -38,34 +38,66 @@
                     <%if(items){%>
                         <%items.forEach(item=>{%>
                             <div class="cartItem">
-                                <div class="deleteFromCart">
+                                <div class="deleteFromCart" style="background: image-set('./Assets/<%=item.name%>.png');background-size: cover;">
                                     <form action="/cart" method="POST">
                                         <input hidden="True" value="<%=item.id%>" name="cartId"/>
                                         <button class="deleteItemButton" type="submit">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
                                                 <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
                                             </svg>
                                         </button>
                                     </form>
                                 </div>
-                                <div class="cartItemInfo">
-                                    <h3><%=item.name%></h3>
-                                    <p><%=item.additionalinfo%></p>
+                                <div class="cartItemInfo noMargin">
+                                    <div class="cartItemNamePrice noMargin">
+                                        <h3 class="noMargin cartItemName"><%=item.name.replaceAll("_", " ")%></h3>
+                                        <p class="cartItemPrice">R<%=item.price%></p>
+                                    </div>
+                                    <p class="noMargin"><%=item.additionalinfo%></p>
                                 </div>
                             </div>
                         <%})%>
                     <%}%>
                 </div>
-                <form action="/placeOrder" method="post">
-                    <input type="text" name="additionalNotes"/>
-                    <label for="delivery">Delivery</label>
-                    <input required="True" type="radio" value="delivery" name="method" id="delivery">
-                    <label for="pick-up">Pick-up</label>
-                    <input required="True" type="radio" value="pick-up" name="method" id="pick-up">
-                    <button type="submit">
-                        Order
-                    </button>
-                </form>
+                <div class="currentOrderInfo">
+                    <div class="totalsCart">
+                        <%if(total){%>
+                            <div class="totalsTitleCart">
+                                <p>Total Before Tax:</p>
+                                <p>Total Tax:</p>
+                                <p>Total After Tax:</p>
+                            </div>
+                            <div class="totalsAmountCart">
+                                <p>R<%=total%></p>
+                                <p>R<%=total*0.15%></p>
+                                <p>R<%=total+(total*0.15)%></p>
+                            </div>
+                        <%}%>
+                    </div>
+                    <form class="placeOrderInfo" action="/placeOrder" method="post">
+                        <label class="cupRButton">
+                            <input required="True" type="radio" value="delivery" name="method">
+                            <span class="cupRButtonNew">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cup-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M.11 3.187A.5.5 0 0 1 .5 3h13a.5.5 0 0 1 .488.608l-.22.991a3.001 3.001 0 0 1-1.3 5.854l-.132.59A2.5 2.5 0 0 1 9.896 13H4.104a2.5 2.5 0 0 1-2.44-1.958L.012 3.608a.5.5 0 0 1 .098-.42Zm12.574 6.288a2 2 0 0 0 .866-3.899z"/>
+                                  </svg>
+                            </span>Delivery
+                        </label><br>
+                        <label class="cupRButton">
+                            <input required="True" type="radio" value="pick-up" name="method">
+                            <span class="cupRButtonNew">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cup-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M.11 3.187A.5.5 0 0 1 .5 3h13a.5.5 0 0 1 .488.608l-.22.991a3.001 3.001 0 0 1-1.3 5.854l-.132.59A2.5 2.5 0 0 1 9.896 13H4.104a2.5 2.5 0 0 1-2.44-1.958L.012 3.608a.5.5 0 0 1 .098-.42Zm12.574 6.288a2 2 0 0 0 .866-3.899z"/>
+                                  </svg>
+                            </span>Pick-up
+                        </label><br>
+                        <label for="addNote">Additional Notes</label><br>
+                        <input id="addNote" type="text" name="additionalNotes"/><br>
+                        <button type="submit">
+                            Order
+                        </button>
+                    </form>
+                </div>
             </div>
         <%}else{%>
             <div class="hasNoItemInCart">
