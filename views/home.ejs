@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="./styles.css"/>
 
     <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="header">
@@ -40,11 +43,26 @@
             <source src="./Videos/1.mp4" type="video/mp4">
         </video>
     </div>
-    <div class="specials_container">
-
+    <div class="ourMenuContainer noPadding">
+        <div class="ourMenuInfo">
+            <h3 class="ourMenuH">Visit Our Menu.</h3>
+            <p class="ourMenuB">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+            </p>
+            <a class="toMenuLink"  href="/menu">
+                Visit Our Menu
+            </a>
+        </div>
+        <div class="ourMenuImg"></div>
     </div>
-    <div class="menu_views_container">
-
+    <div class="restaurantContainer noPadding">
+        <div class="restaurantImg"></div>
+        <div class="restaurantInfo">
+            <h3 class="restaurantH">Visit Our Restaurant For A Comforting Cafe Experience.</h3>
+            <p class="restaurantB">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+            </p>
+        </div>
     </div>
     <div class="reviews_container">
         <%if(reviews.length >0){%>
@@ -176,7 +194,7 @@
             <img class="about_image" src="./Website_Images/11.png"/>
         </div>
     </div>
-    <div class="footer">
+    <div class="footer noPadding">
         <div class="footer_info">
             <a href="/home" class="navLink"><img class="logoFooter" src="./Website_Images/2.png" alt="Website logo for coffee cafe"/></a>
             <p class="footerText">

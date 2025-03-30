@@ -23,6 +23,7 @@ const app = express();
 const port = 3000;
 const saltRounds = 10;
 const taxPercentage=15;
+const deliveryCost=35;
 
 app.use(express.static("./public"));
 app.use(
@@ -129,9 +130,10 @@ app.get("/cart", async(req, res)=>{
       items:items,
       cartItems:cartItems,
       total:total,
+      deliveryCost:deliveryCost,
     })
   }else{
-    res.redirect("/login")
+    res.redirect("/login");
   }
 })
 
@@ -380,7 +382,10 @@ async function PlaceOrder(userId, additional, method) {
     items.push(itemInfo);
     totalBeforeTax += item.price;
   })
-  const totalTax=totalBeforeTax*taxPercentage/100;
+  let totalTax=totalBeforeTax*taxPercentage/100;
+  if(method=="delivery"){
+    totalTax = totalTax+deliveryCost
+  }
   const totalAfterTax=totalBeforeTax+totalTax;
   const deliveryMethod=method
   const additionalNotes =additional
